@@ -1,0 +1,29 @@
+img {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100px;
+}
+
+img:hover {
+    box-shadow: 0 0 6px 6px rgba(129, 56, 74, 0.5);
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+nav{
+
+    position: fixed;
+    text-align: center;
+    border: 3px solid red;
+    border-style: dotted solid double;
+    border-left-style: dotted;
+    border-right-style: dotted;
+}
+
+th, td,tr {
+    text-align: left;
+    padding: 1px;
+}
