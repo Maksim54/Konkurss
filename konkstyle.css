@@ -1,29 +1,47 @@
 img {
     border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 5px;
-    width: 100px;
+    border-radius: 10px;
+    padding: 8px;
+    width: 70px;
 }
-
+body{
+    background-color: #c886cc;
+}
 img:hover {
-    box-shadow: 0 0 6px 6px rgba(129, 56, 74, 0.5);
+    box-shadow: 0 0 10px 10px rgba(217, 44, 44, 0.5);
 }
-
 table {
-    border-collapse: collapse;
-    width: 70%;
-}
-nav{
+    /*border-collapse: collapse;*/
+    width: 100%;
 
-    position: fixed;
+}
+
+th, td {
     text-align: center;
-    border: 3px solid red;
-    border-style: dotted solid double;
-    border-left-style: dotted;
-    border-right-style: dotted;
+    padding: 8px;
+    border: 2px solid #6ed987;
+    text-decoration:overline;
 }
 
-th, td,tr {
-    text-align: left;
-    padding: 1px;
+tr:nth-child(even) {background-color: #8ec0e7;}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #ff9b00;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+    background-color: #d3986a;
+    color: black;
 }

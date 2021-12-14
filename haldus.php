@@ -37,6 +37,13 @@ if(isset($_REQUEST['kustuta'])){
 
     $kask->execute();
 }
+//
+if (isset($_REQUEST['kommentaar'])){
+    $kask=$yhendus->prepare("UPDATE konkurss set kommentaar=' ' where id=?");
+    $kask->bind_param("i",$_REQUEST['kommentaar']);
+    $kask->execute();
+    header("Location: $_SERVER[PHP_SELF]");
+}
 
 ?>
 <!Doctype html>
@@ -46,6 +53,11 @@ if(isset($_REQUEST['kustuta'])){
     <title>Fotokonkurssi halduse leht</title>
 </head>
 <body>
+<div>
+    <form action="logivalja.php" method="post">
+        <input type="submit" value="log out" name="logout">
+    </form>
+</div>
 <h1>
     Fotokonkurssi halduse leht "Telefonid"
 </h1>
@@ -57,11 +69,13 @@ $kask->execute();
 echo "<table><tr><td>Nimi</td><td>Pilt</td><td>Lisamisaeg</td><td>Punktid</td></tr>";
 
 while($kask->fetch()){
+    echo "<tr>";
     echo "<tr><td>$nimi</td>";
-    echo "<tr><td><img src='$pilt' alt='pilt'></td>";
-    echo "<tr><td>$aeg</td>";
-    echo "<tr><td>$punktid</td>";
+    echo "<td><img src='$pilt' alt='pilt'></td>";
+    echo "<td>$aeg</td>";
+    echo "<td>$punktid</td>";
     echo "<td><a href='?punkt=$id'>Punktid nulliks</a></td>";
+    echo"<td><a href='?kommentaar=$id'>Kommentaride nulliks</a></td>";
     // peida-näita
     $avatekst="Ava";
     $param="avamine";
@@ -95,7 +109,10 @@ echo "<table>";
 <br>
 <nav>
     <a href="haldus.php">Admin leht</a>
+    <br>
     <a href="konkurss.php">User leht</a>
+    <br>
+    <a href="https://github.com/Maksim54/Konkurss">Link to github</a>
 </nav>
 </body>
 </html>
